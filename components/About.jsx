@@ -89,7 +89,7 @@ function AboutLMS() {
                   Finish: Achieve Your Goals
                 </h2>
                 <p className="leading-relaxed">
-                  Now you are ready to reach new heights! With LMS, you can
+                  Now you are ready to reach new heights With LMS you can
                   accomplish your educational and career goals.
                 </p>
               </div>
