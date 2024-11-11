@@ -75,7 +75,7 @@ function AboutLMS() {
                   Step 4: Apply Your Knowledge
                 </h2>
                 <p className="leading-relaxed">
-                  Practice and apply what you’ve learned through real-world
+                  Practice and apply what you will learned through real-world
                   projects to make your learning experience practical.
                 </p>
               </div>
@@ -89,7 +89,7 @@ function AboutLMS() {
                   Finish: Achieve Your Goals
                 </h2>
                 <p className="leading-relaxed">
-                  Now you're ready to reach new heights! With LMS, you can
+                  Now you are ready to reach new heights! With LMS, you can
                   accomplish your educational and career goals.
                 </p>
               </div>

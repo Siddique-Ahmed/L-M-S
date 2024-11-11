@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -30,7 +31,9 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img
+            <Image
+            width={600}
+            height={600}
               className="object-cover object-center rounded"
               alt="hero"
               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxlYXJuaW5nJTIwbWFuYWdlbWVudCUyMHN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D"
