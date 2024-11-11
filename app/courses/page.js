@@ -1,15 +1,12 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
 import NewCourses from "@/components/NewCourses";
 
-export default function Home() {
-  const isHome = true;
+export default function Courses() {
   return (
     <div>
       <Header />
-      <HeroSection />
-      <NewCourses isHome={isHome} />
+      <NewCourses />
       <Footer />
     </div>
   );

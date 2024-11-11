@@ -10,16 +10,12 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from "../components/ui/menubar";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "../components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaBook, FaHome, FaPhone, FaQuestionCircle } from "react-icons/fa";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -38,16 +34,16 @@ const Header = () => {
           {/* Desktop Navigation Links (hidden on mobile) */}
           <nav className="hidden md:flex items-center space-x-5">
             <Link href="/" className="hover:text-gray-900">
-              First Link
+              Home
             </Link>
-            <Link href="/" className="hover:text-gray-900">
-              Second Link
+            <Link href="/courses" className="hover:text-gray-900">
+              Courses
             </Link>
-            <Link href="/" className="hover:text-gray-900">
-              Third Link
+            <Link href="/about" className="hover:text-gray-900">
+              About Us
             </Link>
-            <Link href="/" className="hover:text-gray-900">
-              Fourth Link
+            <Link href="/contact" className="hover:text-gray-900">
+              Contact Us
             </Link>
           </nav>
 
@@ -97,37 +93,41 @@ const Header = () => {
           } transition-transform duration-300 ease-in-out w-64`}
         >
           <div className="p-4">
-            <button className="text-gray-900" onClick={toggleMenu}>
+            <button className="text-gray-900 sm:hidden" onClick={toggleMenu}>
               <FiX size={24} />
             </button>
             <nav className="flex flex-col mt-4 space-y-4">
               <Link
                 href="/"
-                className="hover:text-gray-900"
+                className="hover:text-white p-2 bg-gray-300 hover:bg-gray-400 rounded-md flex gap-2 items-center"
                 onClick={toggleMenu}
               >
-                First Link
+                <FaHome />
+                Home
               </Link>
               <Link
-                href="/"
-                className="hover:text-gray-900"
+                href="/courses"
+                className="hover:text-white p-2 bg-gray-300 hover:bg-gray-400 rounded-md flex gap-2 items-center"
                 onClick={toggleMenu}
               >
-                Second Link
+                <FaBook />
+                Courses
               </Link>
               <Link
-                href="/"
-                className="hover:text-gray-900"
+                href="/about"
+                className="hover:text-white p-2 bg-gray-300 hover:bg-gray-400 rounded-md flex gap-2 items-center"
                 onClick={toggleMenu}
               >
-                Third Link
+                <FaQuestionCircle />
+                About Us
               </Link>
               <Link
-                href="/"
-                className="hover:text-gray-900"
+                href="/contact"
+                className="hover:text-white p-2 bg-gray-300 hover:bg-gray-400 rounded-md flex gap-2 items-center"
                 onClick={toggleMenu}
               >
-                Fourth Link
+                <FaPhone />
+                Contact Us
               </Link>
             </nav>
           </div>
