@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -13,7 +14,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -170,7 +170,13 @@ const courseTitles = [
 ];
 
 const NewCourses = ({ isHome }) => {
-  const filterData = isHome ? cardData.slice(0, 6) : cardData;
+  const [findCourse, setFindCourse] = useState(null);
+
+  const filterCourse = findCourse
+    ? cardData.filter((title) => title.title == findCourse)
+    : isHome
+    ? cardData.slice(0, 6)
+    : cardData;
 
   return (
     <div className={`container mx-auto ${isHome ? "my-10" : "mt-[120px]"}`}>
@@ -182,7 +188,7 @@ const NewCourses = ({ isHome }) => {
           </Link>
         ) : (
           <div>
-            <Select>
+            <Select onValueChange={(val) => setFindCourse(val)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select a Course" />
               </SelectTrigger>
@@ -202,10 +208,10 @@ const NewCourses = ({ isHome }) => {
         )}
       </div>
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 my-4 px-5">
-          {filterData.map((data) => {
+        <div className="flex flex-wrap items-center justify-evenly gap-3 my-4 px-5">
+          {filterCourse.map((data) => {
             return (
-              <Card key={data.id} className="w-fullmy-3 md:w-[300px]">
+              <Card key={data.id} className="w-full my-2 md:w-[300px]">
                 <CardHeader className="flex items-center justify-between">
                   <Image
                     src={data?.img}
