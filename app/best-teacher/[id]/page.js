@@ -177,14 +177,6 @@ export default function TeacherDetail({ params }) {
                       bottle austin listicle pour-over, neutra jean shorts
                       keytar banjo tattooed umami cardigan.
                     </p>
-                    <div className="flex">
-                      <span className="title-font font-medium text-2xl text-gray-900">
-                        $58.00
-                      </span>
-                      <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                        Button
-                      </button>
-                    </div>
                   </div>
                   ;
                 </div>
