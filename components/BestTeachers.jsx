@@ -149,7 +149,7 @@ const BestTeachers = ({ isHome }) => {
       <Header />
       <div className="px-10 my-24">
         <div className="flex justify-between items-center my-10">
-          <h1 className="font-bold text-2xl">Best Teachers</h1>
+          <h1 className="font-bold text-xl sm:text-2xl">Best Teachers</h1>
           {isHome ? (
             <Link href={"/best-teacher"}>
               <Button>See All</Button>
@@ -157,7 +157,7 @@ const BestTeachers = ({ isHome }) => {
           ) : (
             <div>
               <Select onValueChange={(val) => setFindTeacher(val)}>
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-[150px] sm:w-[190px]">
                   <SelectValue placeholder="Select a Teachers" />
                 </SelectTrigger>
                 <SelectContent>

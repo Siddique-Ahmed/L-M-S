@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -25,15 +26,17 @@ const HeroSection = () => {
               <Button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
                 About Us
               </Button>
-              <Button className="inline-flex text-white bg-gray-300 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
-                Apply For Teacher
-              </Button>
+              <Link href={"/teacher-apply"}>
+                <Button className="inline-flex text-white bg-gray-300 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
+                  Apply For Teacher
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <Image
-            width={600}
-            height={600}
+              width={600}
+              height={600}
               className="object-cover object-center rounded"
               alt="hero"
               src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxlYXJuaW5nJTIwbWFuYWdlbWVudCUyMHN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D"

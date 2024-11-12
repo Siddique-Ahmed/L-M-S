@@ -181,7 +181,7 @@ const NewCourses = ({ isHome }) => {
   return (
     <div className={`container mx-auto ${isHome ? "my-10" : "mt-[120px]"}`}>
       <div className="flex px-10 justify-between">
-        <h1 className="font-bold text-2xl">Newly Courses</h1>
+        <h1 className="font-bold text-xl sm:text-2xl">Newly Courses</h1>
         {isHome ? (
           <Link href={"/courses"}>
             <Button>See All</Button>
@@ -189,7 +189,7 @@ const NewCourses = ({ isHome }) => {
         ) : (
           <div>
             <Select onValueChange={(val) => setFindCourse(val)}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="2-[150px] sm:w-[180px]">
                 <SelectValue placeholder="Select a Course" />
               </SelectTrigger>
               <SelectContent>
