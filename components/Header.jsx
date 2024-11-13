@@ -15,11 +15,20 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaBook, FaChalkboardTeacher, FaHome, FaPhone, FaQuestionCircle } from "react-icons/fa";
+import {
+  FaBook,
+  FaChalkboardTeacher,
+  FaHome,
+  FaPhone,
+  FaQuestionCircle,
+} from "react-icons/fa";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const session =  null;
+  const session = "null";
+  const student = "";
+  const teacher = "";
+  const admin = "/admin";
 
   return (
     <div>
@@ -74,7 +83,11 @@ const Header = () => {
                     <MenubarContent>
                       <MenubarItem>Profile</MenubarItem>
                       <MenubarSeparator />
-                      <MenubarItem>Dashboard</MenubarItem>
+                      <Link
+                        href={student ? student : teacher ? teacher : admin}
+                      >
+                        <MenubarItem>Dashboard</MenubarItem>
+                      </Link>
                       <MenubarSeparator />
                       <MenubarItem>Logout</MenubarItem>
                     </MenubarContent>
@@ -82,9 +95,11 @@ const Header = () => {
                 </Menubar>
               </>
             ) : (
-              <Link href={"/login"}><Button className="bg-blue-500 hover:bg-blue-300 text-white py-1 px-3 rounded">
-                Login
-              </Button></Link>
+              <Link href={"/login"}>
+                <Button className="bg-blue-500 hover:bg-blue-300 text-white py-1 px-3 rounded">
+                  Login
+                </Button>
+              </Link>
             )}
           </div>
         </div>
