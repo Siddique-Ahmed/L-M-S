@@ -21,13 +21,14 @@ const HeroSection = () => {
               today’s digital age. Join us in shaping a future where knowledge
               is just a click away.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
-              <Button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
-                About Us
-              </Button>
+              <Link href={"/about"}>
+                <Button className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
+                  About Us
+                </Button>
+              </Link>
               <Link href={"/teacher-apply"}>
-                <Button className="inline-flex text-white bg-gray-300 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
+                <Button className="inline-flex text-white bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded text-lg">
                   Apply For Teacher
                 </Button>
               </Link>

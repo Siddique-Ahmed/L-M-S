@@ -15,11 +15,11 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaBook, FaHome, FaPhone, FaQuestionCircle } from "react-icons/fa";
+import { FaBook, FaChalkboardTeacher, FaHome, FaPhone, FaQuestionCircle } from "react-icons/fa";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const session = "null";
+  const session =  null;
 
   return (
     <div>
@@ -38,6 +38,9 @@ const Header = () => {
             </Link>
             <Link href="/courses" className="hover:text-gray-900">
               Courses
+            </Link>
+            <Link href="/best-teacher" className="hover:text-gray-900">
+              Teachers
             </Link>
             <Link href="/about" className="hover:text-gray-900">
               About Us
@@ -79,9 +82,9 @@ const Header = () => {
                 </Menubar>
               </>
             ) : (
-              <Button className="bg-blue-500 hover:bg-blue-300 text-white py-1 px-3 rounded">
+              <Link href={"/login"}><Button className="bg-blue-500 hover:bg-blue-300 text-white py-1 px-3 rounded">
                 Login
-              </Button>
+              </Button></Link>
             )}
           </div>
         </div>
@@ -112,6 +115,14 @@ const Header = () => {
               >
                 <FaBook />
                 Courses
+              </Link>
+              <Link
+                href="/best-teacher"
+                className="hover:text-white p-2 bg-gray-300 hover:bg-gray-400 rounded-md flex gap-2 items-center"
+                onClick={toggleMenu}
+              >
+                <FaChalkboardTeacher />
+                Teachers
               </Link>
               <Link
                 href="/about"
