@@ -81,7 +81,9 @@ const Header = () => {
                       </Avatar>
                     </MenubarTrigger>
                     <MenubarContent>
+                      <Link href={"/profile"}>
                       <MenubarItem>Profile</MenubarItem>
+                      </Link>
                       <MenubarSeparator />
                       <Link
                         href={student ? student : teacher ? teacher : admin}
