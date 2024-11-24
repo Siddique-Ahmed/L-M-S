@@ -85,7 +85,7 @@ export default function TeachersPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 rounded-lg shadow-lg p-6 mb-8">
+      <div className="bg-gradient-to-r from-blue-500 to-blue-800 rounded-lg shadow-lg p-6 mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Teachers Management</h1>
         <p className="text-purple-200">View and manage teacher information</p>
       </div>
@@ -114,10 +114,10 @@ export default function TeachersPage() {
                   <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">ID</TableHead>
                   <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</TableHead>
                   <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Expertise</TableHead>
-                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden md:table-cell">Address</TableHead>
-                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">Education</TableHead>
-                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">Email</TableHead>
-                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">Phone</TableHead>
+                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider md:table-cell">Address</TableHead>
+                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider lg:table-cell">Education</TableHead>
+                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider sm:table-cell">Email</TableHead>
+                  <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider sm:table-cell">Phone</TableHead>
                   <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -136,10 +136,10 @@ export default function TeachersPage() {
                         {teacher.expertize}
                       </span>
                     </TableCell>
-                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden md:table-cell">{teacher.address}</TableCell>
-                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden lg:table-cell">{teacher.education}</TableCell>
-                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">{teacher.email}</TableCell>
-                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">{teacher.phoneNum}</TableCell>
+                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 md:table-cell">{teacher.address}</TableCell>
+                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 lg:table-cell">{teacher.education}</TableCell>
+                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">{teacher.email}</TableCell>
+                    <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">{teacher.phoneNum}</TableCell>
                     <TableCell className="py-4 px-6 text-sm font-medium">
                       <Button
                         variant="outline"

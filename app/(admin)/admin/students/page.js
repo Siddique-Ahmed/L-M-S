@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 
 const initialStudents = [
   {
@@ -29,9 +29,9 @@ const initialStudents = [
     email: "alice@example.com",
     status: "Enrolled",
     cnic: 9834693471874,
-    phoneNum : "0290342534",
-    courseName : "Web and App Development",
-    batchNo : "batch 01",
+    phoneNum: "0290342534",
+    courseName: "Web and App Development",
+    batchNo: "batch 01",
   },
   {
     id: 2,
@@ -42,9 +42,9 @@ const initialStudents = [
     email: "bob@example.com",
     status: "Enrolled",
     cnic: 9834693471874,
-    phoneNum : "0290342534",
-    courseName : "Web Development",
-    batchNo : "batch 01",
+    phoneNum: "0290342534",
+    courseName: "Web Development",
+    batchNo: "batch 01",
   },
   {
     id: 3,
@@ -55,9 +55,9 @@ const initialStudents = [
     email: "charlie@example.com",
     status: "Not Enrolled",
     cnic: 9834693471874,
-    phoneNum : "0290342534",
-    courseName : "App Development",
-    batchNo : "batch 01",
+    phoneNum: "0290342534",
+    courseName: "App Development",
+    batchNo: "batch 01",
   },
   {
     id: 4,
@@ -68,9 +68,9 @@ const initialStudents = [
     email: "diana@example.com",
     status: "Eliminated",
     cnic: 9834693471874,
-    phoneNum : "0290342534",
-    courseName : "python",
-    batchNo : "batch 01",
+    phoneNum: "0290342534",
+    courseName: "python",
+    batchNo: "batch 01",
   },
 ];
 
@@ -86,9 +86,10 @@ export default function StudentsPage() {
     );
   };
 
-  const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.email.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStudents = students.filter(
+    (student) =>
+      student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -124,25 +125,25 @@ export default function StudentsPage() {
                 <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Education
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden md:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider md:table-cell">
                   Address
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden lg:table-cell">
-                 CNIC
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider lg:table-cell">
+                  CNIC
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden lg:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider lg:table-cell">
                   Parent Name
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sm:table-cell">
                   Email
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sm:table-cell">
                   Phone Number
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sm:table-cell">
                   Course Name
                 </TableHead>
-                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider sm:table-cell">
                   Batch Number
                 </TableHead>
                 <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
@@ -169,25 +170,25 @@ export default function StudentsPage() {
                   <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300">
                     {student.grade}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden md:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 md:table-cell">
                     {student.address}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden lg:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 lg:table-cell">
                     {student.cnic}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden lg:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 lg:table-cell">
                     {student.parentName}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">
                     {student.email}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">
                     {student.phoneNum}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">
                     {student.courseName}
                   </TableCell>
-                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 sm:table-cell">
                     {student.batchNo}
                   </TableCell>
                   <TableCell className="py-4 px-6 text-sm font-medium">
@@ -218,4 +219,3 @@ export default function StudentsPage() {
     </div>
   );
 }
-
