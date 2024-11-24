@@ -32,7 +32,8 @@ const cardData = [
     id: 2,
     title: "App Development",
     img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
-    description: "Become a skilled app developer with this comprehensive course.",
+    description:
+      "Become a skilled app developer with this comprehensive course.",
   },
   {
     id: 3,
@@ -74,7 +75,8 @@ const cardData = [
     id: 9,
     title: "Blockchain Development",
     img: "https://images.unsplash.com/photo-1573164573931-8ad0f26e9d1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
-    description: "Explore blockchain technology and learn to develop decentralized applications.",
+    description:
+      "Explore blockchain technology and learn to develop decentralized applications.",
   },
   {
     id: 10,
@@ -179,7 +181,7 @@ const NewCourses = ({ isHome }) => {
 
   return (
     <div className={`container mx-auto ${isHome ? "my-10" : "mt-[120px]"}`}>
-      <div className="flex px-10 justify-between">
+      <div className="flex px-10 gap-5 justify-between">
         <h1 className="font-bold text-xl sm:text-2xl">Newly Courses</h1>
         {isHome ? (
           <Link href={"/courses"}>

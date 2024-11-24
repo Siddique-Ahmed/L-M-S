@@ -148,7 +148,7 @@ const BestTeachers = ({ isHome }) => {
     <div className="min-h-screen">
       <Header />
       <div className="px-10 my-24">
-        <div className="flex justify-between items-center my-10">
+        <div className="flex justify-between gap-5 items-center my-10">
           <h1 className="font-bold text-xl sm:text-2xl">Best Teachers</h1>
           {isHome ? (
             <Link href={"/best-teacher"}>

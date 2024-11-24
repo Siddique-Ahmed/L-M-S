@@ -60,8 +60,8 @@ export default function AdminLayout({
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex bg-gray-100 justify-between items-center p-4">
-          <h1 className="text-2xl font-bold">Admin Panel</h1>
+        <div className="flex bg-white justify-between items-center p-4">
+          <h1 className="text-2xl text-blue-600 font-bold">Admin Panel</h1>
           <Button 
             variant="ghost" 
             size="icon"

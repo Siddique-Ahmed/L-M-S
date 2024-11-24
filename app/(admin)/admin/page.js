@@ -15,7 +15,7 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
+      <h1 className="text-3xl font-bold text-blue-600 mb-6">Admin Dashboard</h1>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <Link href="/admin/teachers" className="block">
           <Card>
@@ -24,7 +24,7 @@ export default async function AdminPage() {
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{teacherCount}</div>
+              <div className="text-2xl text-gray-400 font-bold">{teacherCount}</div>
             </CardContent>
           </Card>
         </Link>
@@ -35,7 +35,7 @@ export default async function AdminPage() {
               <GraduationCap className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{studentCount}</div>
+              <div className="text-2xl text-gray-400 font-bold">{studentCount}</div>
             </CardContent>
           </Card>
         </Link>
@@ -46,7 +46,7 @@ export default async function AdminPage() {
               <School className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{classCount}</div>
+              <div className="text-2xl text-gray-400 font-bold">{classCount}</div>
             </CardContent>
           </Card>
         </Link>

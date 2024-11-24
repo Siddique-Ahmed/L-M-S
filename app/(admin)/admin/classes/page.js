@@ -1,4 +1,17 @@
-import { Button } from "@/components/ui/button"
+"use client";
+
+import { useState } from "react";
+import { PlusCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -6,47 +19,214 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
-async function getClasses() {
-  // This is a mock function. In a real application, you'd fetch this data from your database.
-  return [
-    { id: 1, name: "Mathematics 101", teacher: "John Doe" },
-    { id: 2, name: "English Literature", teacher: "Jane Smith" },
-    { id: 3, name: "Physics", teacher: "Bob Johnson" },
-  ]
-}
+const initialCourses = [
+  {
+    id: 1,
+    name: "Introduction to React",
+    batch: "Batch A",
+    batchStatus: "Ongoing",
+    status: "Ongoing",
+  },
+  {
+    id: 2,
+    name: "Advanced JavaScript",
+    batch: "Batch B",
+    batchStatus: "Available",
+    status: "Pending",
+  },
+  {
+    id: 3,
+    name: "Node.js Fundamentals",
+    batch: "Batch C",
+    batchStatus: "Ongoing",
+    status: "Closed",
+  },
+];
 
-export default async function ClassesPage() {
-  const classes = await getClasses()
+export default function CoursesPage() {
+  const [courses, setCourses] = useState(initialCourses);
+  const [newCourse, setNewCourse] = useState({ name: "", batch: "" });
+
+  const handleAddCourse = (e) => {
+    e.preventDefault();
+    if (newCourse.name && newCourse.batch) {
+      setCourses([
+        ...courses,
+        {
+          id: courses.length + 1,
+          ...newCourse,
+          batchStatus: "Available",
+          status: "Pending",
+        },
+      ]);
+      setNewCourse({ name: "", batch: "" });
+    }
+  };
+
+  const handleStatusChange = (courseId, newStatus) => {
+    setCourses((prevCourses) =>
+      prevCourses.map((course) =>
+        course.id === courseId ? { ...course, status: newStatus } : course
+      )
+    );
+  };
+
+  const handleBatchStatusChange = (courseId, newStatus) => {
+    setCourses((prevCourses) =>
+      prevCourses.map((course) =>
+        course.id === courseId ? { ...course, batchStatus: newStatus } : course
+      )
+    );
+  };
 
   return (
-    <div>
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold mb-4 sm:mb-0">Classes</h1>
-        <Button>Add Class</Button>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
+        Course Management
+      </h1>
+
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">
+          Add New Course
+        </h2>
+        <form onSubmit={handleAddCourse} className="space-y-4">
+          <div>
+            <Label htmlFor="courseName">Course Name</Label>
+            <Input
+              id="courseName"
+              value={newCourse.name}
+              onChange={(e) =>
+                setNewCourse({ ...newCourse, name: e.target.value })
+              }
+              placeholder="Enter course name"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="batchName">Batch Name</Label>
+            <Input
+              id="batchName"
+              value={newCourse.batch}
+              onChange={(e) =>
+                setNewCourse({ ...newCourse, batch: e.target.value })
+              }
+              placeholder="Enter batch name"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="batchName">Batch Status</Label>
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Available">Available</SelectItem>
+                <SelectItem value="Ongoing">Ongoing</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="w-full flex flex-col gap-3">
+            <Label htmlFor="batchName">Course Status</Label>
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Available">Available</SelectItem>
+                <SelectItem value="Closed">Closed</SelectItem>
+                <SelectItem value="Pending">Pending</SelectItem>
+                <SelectItem value="Ongoing">Ongoing</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <Button type="submit" className="w-full">
+            <PlusCircle className="mr-2 h-4 w-4" /> Add Course
+          </Button>
+        </form>
       </div>
-      <div className="overflow-x-auto">
+
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">ID</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Teacher</TableHead>
+            <TableRow className="bg-gray-100 dark:bg-gray-700">
+              <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                Course ID
+              </TableHead>
+              <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                Course Name
+              </TableHead>
+              <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                Batch
+              </TableHead>
+              <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                Batch Status
+              </TableHead>
+              <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                Course Status
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {classes.map((class_) => (
-              <TableRow key={class_.id}>
-                <TableCell className="font-medium">{class_.id}</TableCell>
-                <TableCell>{class_.name}</TableCell>
-                <TableCell>{class_.teacher}</TableCell>
+            {courses.map((course, index) => (
+              <TableRow
+                key={course.id}
+                className={`${
+                  index % 2 === 0
+                    ? "bg-gray-50 dark:bg-gray-900"
+                    : "bg-white dark:bg-gray-800"
+                } hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200`}
+              >
+                <TableCell className="py-4 px-6 text-sm text-gray-900 dark:text-gray-100">
+                  {course.id}
+                </TableCell>
+                <TableCell className="py-4 px-6 text-sm text-gray-900 dark:text-gray-100">
+                  {course.name}
+                </TableCell>
+                <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300">
+                  {course.batch}
+                </TableCell>
+                <TableCell className="py-4 px-6 text-sm font-medium">
+                  <Select
+                    onValueChange={(value) =>
+                      handleBatchStatusChange(course.id, value)
+                    }
+                    defaultValue={course.batchStatus}
+                  >
+                    <SelectTrigger className="w-[140px]">
+                      <SelectValue placeholder="Select status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Available">Available</SelectItem>
+                      <SelectItem value="Ongoing">Ongoing</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </TableCell>
+                <TableCell className="py-4 px-6 text-sm font-medium">
+                  <Select
+                    onValueChange={(value) =>
+                      handleStatusChange(course.id, value)
+                    }
+                    defaultValue={course.status}
+                  >
+                    <SelectTrigger className="w-[140px]">
+                      <SelectValue placeholder="Select status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Available">Available</SelectItem>
+                      <SelectItem value="Closed">Closed</SelectItem>
+                      <SelectItem value="Pending">Pending</SelectItem>
+                      <SelectItem value="Ongoing">Ongoing</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </div>
     </div>
-  )
+  );
 }
-
