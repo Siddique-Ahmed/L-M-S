@@ -28,7 +28,10 @@ const initialStudents = [
     parentName: "Carol Johnson",
     email: "alice@example.com",
     status: "Enrolled",
-    cnic: 9834693471874
+    cnic: 9834693471874,
+    phoneNum : "0290342534",
+    courseName : "Web and App Development",
+    batchNo : "batch 01",
   },
   {
     id: 2,
@@ -38,7 +41,10 @@ const initialStudents = [
     parentName: "David Williams",
     email: "bob@example.com",
     status: "Enrolled",
-    cnic: 9834693471874
+    cnic: 9834693471874,
+    phoneNum : "0290342534",
+    courseName : "Web Development",
+    batchNo : "batch 01",
   },
   {
     id: 3,
@@ -48,7 +54,10 @@ const initialStudents = [
     parentName: "Eve Brown",
     email: "charlie@example.com",
     status: "Not Enrolled",
-    cnic: 9834693471874
+    cnic: 9834693471874,
+    phoneNum : "0290342534",
+    courseName : "App Development",
+    batchNo : "batch 01",
   },
   {
     id: 4,
@@ -58,7 +67,10 @@ const initialStudents = [
     parentName: "Frank Martinez",
     email: "diana@example.com",
     status: "Eliminated",
-    cnic: 9834693471874
+    cnic: 9834693471874,
+    phoneNum : "0290342534",
+    courseName : "python",
+    batchNo : "batch 01",
   },
 ];
 
@@ -124,6 +136,15 @@ export default function StudentsPage() {
                 <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
                   Email
                 </TableHead>
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                  Phone Number
+                </TableHead>
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                  Course Name
+                </TableHead>
+                <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden sm:table-cell">
+                  Batch Number
+                </TableHead>
                 <TableHead className="py-3 px-6 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Status
                 </TableHead>
@@ -159,6 +180,15 @@ export default function StudentsPage() {
                   </TableCell>
                   <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
                     {student.email}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                    {student.phoneNum}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                    {student.courseName}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 text-sm text-gray-500 dark:text-gray-300 hidden sm:table-cell">
+                    {student.batchNo}
                   </TableCell>
                   <TableCell className="py-4 px-6 text-sm font-medium">
                     <Select

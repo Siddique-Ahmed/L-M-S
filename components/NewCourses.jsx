@@ -226,7 +226,9 @@ const NewCourses = ({ isHome }) => {
                   <CardDescription>{data.description}</CardDescription>
                 </CardContent>
                 <CardFooter>
+                  <Link href={`/courses/${data.id}`}>
                   <Button>Apply Now</Button>
+                  </Link>
                 </CardFooter>
               </Card>
             );
