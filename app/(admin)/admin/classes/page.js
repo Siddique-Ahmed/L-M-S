@@ -49,38 +49,6 @@ export default function CoursesPage() {
   const [courses, setCourses] = useState(initialCourses);
   const [newCourse, setNewCourse] = useState({ name: "", batch: "" });
 
-  const handleAddCourse = (e) => {
-    e.preventDefault();
-    if (newCourse.name && newCourse.batch) {
-      setCourses([
-        ...courses,
-        {
-          id: courses.length + 1,
-          ...newCourse,
-          batchStatus: "Available",
-          status: "Pending",
-        },
-      ]);
-      setNewCourse({ name: "", batch: "" });
-    }
-  };
-
-  const handleStatusChange = (courseId, newStatus) => {
-    setCourses((prevCourses) =>
-      prevCourses.map((course) =>
-        course.id === courseId ? { ...course, status: newStatus } : course
-      )
-    );
-  };
-
-  const handleBatchStatusChange = (courseId, newStatus) => {
-    setCourses((prevCourses) =>
-      prevCourses.map((course) =>
-        course.id === courseId ? { ...course, batchStatus: newStatus } : course
-      )
-    );
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-200">
@@ -91,15 +59,11 @@ export default function CoursesPage() {
         <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">
           Add New Course
         </h2>
-        <form onSubmit={handleAddCourse} className="space-y-4">
+        <form className="space-y-4">
           <div>
             <Label htmlFor="courseName">Course Name</Label>
             <Input
               id="courseName"
-              value={newCourse.name}
-              onChange={(e) =>
-                setNewCourse({ ...newCourse, name: e.target.value })
-              }
               placeholder="Enter course name"
               className="mt-1"
             />
@@ -108,13 +72,19 @@ export default function CoursesPage() {
             <Label htmlFor="batchName">Batch Name</Label>
             <Input
               id="batchName"
-              value={newCourse.batch}
-              onChange={(e) =>
-                setNewCourse({ ...newCourse, batch: e.target.value })
-              }
               placeholder="Enter batch name"
               className="mt-1"
             />
+          </div>
+          <div>
+            <Label htmlFor="batchName">Course Description</Label>
+            <textarea
+              id="courseDesciption"
+              placeholder="Enter Course Description"
+              className="mt-1 w-full border-gray-300 px-3 py-2 border"
+              rows={4}
+              cols={4}
+            ></textarea>
           </div>
           <div>
             <Label htmlFor="batchName">Batch Status</Label>
@@ -123,8 +93,9 @@ export default function CoursesPage() {
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Available">Available</SelectItem>
+                <SelectItem value="Available">Open</SelectItem>
                 <SelectItem value="Ongoing">Ongoing</SelectItem>
+                <SelectItem value="Ongoing">Close</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -135,7 +106,7 @@ export default function CoursesPage() {
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Available">Available</SelectItem>
+                <SelectItem value="Available">Open</SelectItem>
                 <SelectItem value="Closed">Closed</SelectItem>
                 <SelectItem value="Pending">Pending</SelectItem>
                 <SelectItem value="Ongoing">Ongoing</SelectItem>

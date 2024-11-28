@@ -25,9 +25,7 @@ import {
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const session = "null";
-  const student = "";
-  const teacher = "";
+  const session = null;
   const admin = "/admin";
 
   return (

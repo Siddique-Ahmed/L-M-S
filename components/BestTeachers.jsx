@@ -141,7 +141,7 @@ const BestTeachers = ({ isHome }) => {
   const filteredTeachers = findTeacher
     ? teachers.filter((teacher) => teacher.name === findTeacher)
     : isHome
-    ? teachers.slice(0, 6)
+    ? teachers.slice(0, 10)
     : teachers;
 
   return (
